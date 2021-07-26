@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :logged_in?, redirect_to cats_url
 
     def index
         @users = User.all
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            login_user!
             redirect_to user_url(@user)
         else
             render json: @user.errors.full_messages, status: 422

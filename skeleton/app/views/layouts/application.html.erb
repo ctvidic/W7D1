@@ -8,7 +8,17 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+ 
+
   <body>
+    <header>
+    <%if logged_in?%>
+        <li> Welcome <%= @current_user.username%>
+        <button> Log out </button>
+    <%else%>
+        <button> Log in </button>
+    <%end%>
+    </header>
     <%= yield %>
   </body>
 </html>
