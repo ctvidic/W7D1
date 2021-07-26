@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :logged_in?, redirect_to cats_url
+    before_action :redirect, except:[:new, :create]
 
     def index
         @users = User.all
