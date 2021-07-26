@@ -29,5 +29,16 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :password)
     end
 
+    def redirect
+        if logged_in?
+            redirect_to cats_url
+        end
+    end
+
+    def destroy
+        @user = User.find_by(id: params[:id])
+        @user.destroy
+        redirect_to cats_url
+    end
 
 end
