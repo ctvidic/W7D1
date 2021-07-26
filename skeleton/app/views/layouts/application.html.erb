@@ -13,7 +13,7 @@
   <body>
     <header>
     <%if logged_in?%>
-        <li> Welcome <%= @current_user.username%>
+        <li> Welcome <%= current_user.username%>
         <button> Log out </button>
     <%else%>
         <button> Log in </button>
